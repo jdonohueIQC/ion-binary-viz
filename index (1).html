@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Text &rarr; Ion Detector Visualizer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <div id="detectorArea">
+    <canvas id="ionCanvas"></canvas>
+    <div id="placeholderMsg"></div>
+  </div>
+
+  <div id="bitsRow"></div>
+  <div id="phraseRow"></div>
+
+  <div id="controlsArea">
+    <input id="entryInput" type="text" autocomplete="off" spellcheck="false">
+
+    <div class="controlsRow">
+      <button id="modeBtn" class="appBtn"></button>
+
+      <div class="controlGroup">
+        <label>Sound</label>
+        <select id="soundSelect" class="appSelect"></select>
+      </div>
+
+      <div class="controlGroup">
+        <label>Clarity</label>
+        <input id="claritySlider" type="range" min="0.5" max="5" step="0.1" value="1">
+      </div>
+
+      <button id="noiseBtn" class="appBtn"></button>
+      <button id="muteBtn" class="appBtn">&#128266; Sound On</button>
+      <button id="fullscreenBtn" class="appBtn" style="background:#333;">&#9974; Fullscreen</button>
+
+      <div id="modeSpecificArea" style="display:flex; gap:12px; flex:2 1 260px; justify-content:center;"></div>
+    </div>
+  </div>
+
+  <div id="statusArea"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

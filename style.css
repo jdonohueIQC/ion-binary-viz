@@ -1,0 +1,149 @@
+  /* ===================================================================
+     LAYOUT / THEME
+     Mirrors the desktop (tkinter) version: a big detector image on top,
+     a row of 0/1 bit labels under it, a "phrase so far" line, then the
+     controls, then a status line.
+     =================================================================== */
+  html, body {
+    margin: 0;
+    height: 100%;
+    background: #000;
+    color: #ddd;
+    font-family: Helvetica, Arial, sans-serif;
+    overflow: hidden;
+  }
+  #app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  /* --- Detector image + placeholder-on-error overlay --- */
+  #detectorArea {
+    flex: 6 1 0;
+    position: relative;
+    min-height: 0;
+    background: #000;
+  }
+  #ionCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    image-rendering: pixelated;      /* keep it blocky, like imshow's nearest-neighbor */
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+  }
+  #placeholderMsg {
+    position: absolute;
+    inset: 0;
+    display: none;                   /* shown only if the ion CSVs fail to load */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    white-space: pre-line;
+    padding: 24px;
+    box-sizing: border-box;
+  }
+
+  /* --- Row of 8 evenly-spaced 0/1 bit labels --- */
+  #bitsRow {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 6px 40px 0 40px;
+  }
+  .bitCell {
+    flex: 1;
+    text-align: center;
+    font-family: "Courier New", monospace;
+    font-weight: bold;
+    font-size: clamp(16px, 2.4vw, 26px);
+    color: #fff;
+  }
+
+  /* --- "Phrase so far" line --- */
+  #phraseRow {
+    flex: 0 0 auto;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: clamp(24px, 4vw, 40px);
+    min-height: 1.3em;
+    font-weight: bold;
+  }
+  #phraseRow .past { color: #808080; font-weight: normal; }
+  #phraseRow .current { color: #fff; font-weight: bold; }
+
+  /* --- Controls --- */
+  #controlsArea {
+    flex: 0 0 auto;
+    background: #111;
+    padding: 20px 40px 0 40px;
+  }
+  #entryInput {
+    width: 100%;
+    font-size: clamp(20px, 3vw, 36px);
+    text-align: center;
+    background: #1c1c1c;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 14px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+  }
+  #entryInput:focus { outline: 2px solid #444; }
+
+  .controlsRow {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 20px;
+  }
+  .controlGroup {
+    flex: 1 1 120px;
+    min-width: 110px;
+    max-width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .controlGroup label {
+    color: #ccc;
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+  button.appBtn {
+    flex: 1 1 110px;
+    min-width: 100px;
+    max-width: 220px;
+    padding: 12px 10px;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  select.appSelect {
+    width: 100%;
+    padding: 6px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  input[type=range] { width: 100%; }
+
+  /* --- Status line --- */
+  #statusArea {
+    text-align: center;
+    color: #ddd;
+    padding: 4px 0 16px 0;
+    font-size: clamp(14px, 2vw, 18px);
+    background: #111;
+  }

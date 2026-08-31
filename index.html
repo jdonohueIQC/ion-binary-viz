@@ -159,6 +159,34 @@
     font-size: clamp(14px, 2vw, 18px);
     background: #111;
   }
+
+  /* --- Credits footer: logo lower-left, attribution text lower-right --- */
+  #creditsRow {
+    flex: 0 0 auto;
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 0 24px 10px 24px;
+  }
+  #creditsLogo {
+    height: 24px;
+    display: block;
+  }
+  #creditsText {
+    text-align: right;
+    font-size: 11px;
+    line-height: 1.5;
+    color: #888;
+  }
+  #creditsText a {
+    color: #aaa;
+    text-decoration: underline;
+  }
+  #creditsText a:hover {
+    color: #fff;
+  }
 </style>
 </head>
 <body>
@@ -196,6 +224,16 @@
   </div>
 
   <div id="statusArea"></div>
+
+  <div id="creditsRow">
+    <a href="https://uwaterloo.ca/institute-for-quantum-computing/" target="_blank" rel="noopener noreferrer">
+      <img id="creditsLogo" src="logo.png" alt="University of Waterloo Institute for Quantum Computing">
+    </a>
+    <div id="creditsText">
+      <div>Developed by the <a href="https://uwaterloo.ca/institute-for-quantum-computing/outreach" target="_blank" rel="noopener noreferrer">IQC Scientific Outreach</a> Team</div>
+      <div>Data from the <a href="https://qiti.iqc.uwaterloo.ca/" target="_blank" rel="noopener noreferrer">Quantum Information with Trapped Ions</a> (QITI) lab</div>
+    </div>
+  </div>
 </div>
 
 <script src="script.js"></script>
